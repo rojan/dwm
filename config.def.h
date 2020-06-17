@@ -14,16 +14,16 @@ static const char col_gray2[]       = "#81a1c1";
 static const char col_gray3[]       = "#4c566a";
 static const char col_gray4[]       = "#434c5e";
 static const char col_cyan[]        = "#3b4252";
-static const char col_white[]		= "#eceff4";
+static const char col_golden[]		= "#EBCB8B";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_white, col_cyan, col_gray2 },
-	[SchemeSel]  = { col_white, col_cyan,  col_cyan  },
-	[SchemeStatus]  = { col_white, col_cyan,  "#222222"  }, // Statusbar right {text,background,not used but cannot be empty}
-	[SchemeTagsSel]  = { col_white, col_gray1,  "#444444"  }, // Tagbar left selected {text,background,not used but cannot be empty}
-    [SchemeTagsNorm]  = { col_white, col_cyan,  "#4c566a"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-    [SchemeInfoSel]  = { col_gray1, col_cyan,  "#4c566a"  }, // infobar middle  selected {text,background,not used but cannot be empty}
-    [SchemeInfoNorm]  = { col_white, col_cyan,  "#4c566a"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+	[SchemeNorm] = { col_golden, col_cyan, col_gray2 },
+	[SchemeSel]  = { col_golden, col_cyan,  col_cyan  },
+	[SchemeStatus]  = { col_golden, col_cyan,  "#222222"  }, // Statusbar right {text,background,not used but cannot be empty}
+	[SchemeTagsSel]  = { col_golden, col_gray1,  "#444444"  }, // Tagbar left selected {text,background,not used but cannot be empty}
+    [SchemeTagsNorm]  = { col_golden, col_cyan,  "#4c566a"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+    [SchemeInfoSel]  = { col_golden, col_cyan,  "#4c566a"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+    [SchemeInfoNorm]  = { col_golden, col_cyan,  "#4c566a"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
 /*Voluem control*/
