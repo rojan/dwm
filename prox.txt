@@ -1,0 +1,10 @@
+Main Gateways:
+5.79.66.2:13010
+3 minnutes gateways:
+69.30.240.226:15001
+15 minutes gateways:
+63.141.241.98:16001
+
+http://stormproxies.com/
+jerryguan777@gmail.com
+Jerry2017
