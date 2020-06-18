@@ -17,8 +17,8 @@ static const char col_cyan[]        = "#3b4252";
 static const char col_golden[]		= "#EBCB8B";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_golden, col_cyan, col_gray2 },
-	[SchemeSel]  = { col_golden, col_cyan,  col_cyan  },
+	[SchemeNorm] = { col_golden, col_cyan, col_cyan},
+	[SchemeSel]  = { col_golden, col_cyan,  col_golden},
 	[SchemeStatus]  = { col_golden, col_cyan,  "#222222"  }, // Statusbar right {text,background,not used but cannot be empty}
 	[SchemeTagsSel]  = { col_golden, col_gray1,  "#444444"  }, // Tagbar left selected {text,background,not used but cannot be empty}
     [SchemeTagsNorm]  = { col_golden, col_cyan,  "#4c566a"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
@@ -42,8 +42,9 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	//{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	//{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
-	{ "Mailspring",  NULL,       NULL,       1 << 4,       0,           0 },
-	{ "Brave-browser",  NULL,       NULL,	2,			0,           -1 },
+	{ "Mailspring",		NULL,       NULL,	1 << 4,		0,			0 },
+	{ "Brave-browser",  NULL,       NULL,	2,			0,			-1 },
+	{ "Slack",			NULL,       NULL,	2,			0,           0 },
 };
 
 /* layout(s) */
@@ -74,7 +75,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray4, "-nf", col_gray1, "-sb", col_gray2, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *brave[]  = { "brave-browser", NULL };
-static const char *flameshot[]  = { "flameshot gui", NULL };
+static const char *flameshot[]  = { "flameshot", "gui", NULL };
 
 #include "shiftview.c"
 
@@ -121,7 +122,8 @@ static Key keys[] = {
 	{ 0, XF86XK_AudioRaiseVolume, spawn, {.v = volupcmd } },
 	{ MODKEY,                       XK_w,  spawn,       { .v = brave } },
 	{ MODKEY|ShiftMask,				XK_s,  spawn,       { .v = flameshot } },
-	{ MODKEY|ShiftMask,				XK_n,  shiftview,       { .i = +1  } },
+	{ MODKEY,						XK_n,  shiftview,       { .i = +1  } },
+	{ MODKEY|ShiftMask,				XK_n,  shiftview,       { .i = -1  } },
 
 };
 
