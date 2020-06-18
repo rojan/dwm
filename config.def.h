@@ -15,6 +15,9 @@ static const char col_gray3[]       = "#4c566a";
 static const char col_gray4[]       = "#434c5e";
 static const char col_cyan[]        = "#3b4252";
 static const char col_golden[]		= "#EBCB8B";
+static const char col_aurora1[]		= "#BF616A";
+static const char col_aurora2[]		= "#D08770";
+static const char col_aurora3[]		= "#A3BE8C";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_golden, col_cyan, col_cyan},
@@ -24,6 +27,7 @@ static const char *colors[][3]      = {
     [SchemeTagsNorm]  = { col_golden, col_cyan,  "#4c566a"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
     [SchemeInfoSel]  = { col_golden, col_cyan,  "#4c566a"  }, // infobar middle  selected {text,background,not used but cannot be empty}
     [SchemeInfoNorm]  = { col_golden, col_cyan,  "#4c566a"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+	[SchemeTitle]  = { col_aurora3, col_cyan,  col_cyan  }
 };
 
 /*Voluem control*/
