@@ -80,6 +80,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *brave[]  = { "brave-beta", NULL };
 static const char *flameshot[]  = { "flameshot", "gui", NULL };
+static const char *power[]  = { "/home/rojan/dotfiles/dmenu_scripts/power.sh", NULL };
 
 #include "shiftview.c"
 
@@ -122,12 +123,13 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ 0,XF86XK_AudioMute, spawn, {.v = mutecmd } },
-	{ 0, XF86XK_AudioLowerVolume, spawn, {.v = voldowncmd } },
-	{ 0, XF86XK_AudioRaiseVolume, spawn, {.v = volupcmd } },
-	{ MODKEY,                       XK_w,  spawn,       { .v = brave } },
-	{ MODKEY|ShiftMask,				XK_s,  spawn,       { .v = flameshot } },
-	{ MODKEY,						XK_n,  shiftview,       { .i = +1  } },
-	{ MODKEY|ShiftMask,				XK_n,  shiftview,       { .i = -1  } },
+	{ 0, XF86XK_AudioLowerVolume, spawn,		{.v = voldowncmd } },
+	{ 0, XF86XK_AudioRaiseVolume, spawn,		{.v = volupcmd } },
+	{ MODKEY,                       XK_w,		spawn,       { .v = brave } },
+	{ MODKEY|ShiftMask,				XK_s,		spawn,       { .v = flameshot } },
+	{ MODKEY,						XK_n,		shiftview,       { .i = +1  } },
+	{ MODKEY|ShiftMask,				XK_n,		shiftview,       { .i = -1  } },
+	{ MODKEY|ShiftMask,				XK_x,		spawn,			{ .v = power  } },
 
 };
 
