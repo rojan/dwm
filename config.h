@@ -30,11 +30,6 @@ static const char *colors[][3]      = {
 	[SchemeTitle]  = { col_aurora3, col_cyan,  col_cyan  }
 };
 
-/*Voluem control*/
-static const char *mutecmd[] = { "pactl", "set-sink-mute", "0", "toggle", NULL };
-static const char *volupcmd[] = { "pactl", "set-sink-volume", "0", "+5%", NULL };
-static const char *voldowncmd[] = { "pactl", "set-sink-volume", "0", "-5%", NULL };
-
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5" };
 
@@ -47,7 +42,7 @@ static const Rule rules[] = {
 	//{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	//{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 	{ "Mailspring",		NULL,       NULL,	1 << 4,		0,			0 },
-	{ "Brave-browser",  NULL,       NULL,	2,			0,			-1 },
+	{ "Brave-browser",  NULL,       NULL,	1,			0,			-1 },
 	{ "Slack",			NULL,       NULL,	2,			0,           0 },
 };
 
@@ -122,9 +117,9 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	{ 0,XF86XK_AudioMute, spawn, {.v = mutecmd } },
-	{ 0, XF86XK_AudioLowerVolume, spawn,		{.v = voldowncmd } },
-	{ 0, XF86XK_AudioRaiseVolume, spawn,		{.v = volupcmd } },
+	{ 0,XF86XK_AudioMute,			spawn,		SHCMD("pulsemixer --toggle-mute; kill -44 $(pidof dwmblocks)") },
+	{ 0, XF86XK_AudioLowerVolume,	spawn,		SHCMD("pulsemixer --change-volume -5; kill -44 $(pidof dwmblocks)") },
+	{ 0, XF86XK_AudioRaiseVolume,	spawn,		SHCMD("pulsemixer --change-volume +5; kill -44 $(pidof dwmblocks)") },
 	{ MODKEY,                       XK_w,		spawn,       { .v = brave } },
 	{ MODKEY|ShiftMask,				XK_s,		spawn,       { .v = flameshot } },
 	{ MODKEY,						XK_n,		shiftview,       { .i = +1  } },
