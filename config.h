@@ -41,9 +41,10 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	//{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	//{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
-	{ "Mailspring",		NULL,       NULL,	1 << 4,		0,			0 },
 	{ "Brave-browser",  NULL,       NULL,	1,			0,			-1 },
-	{ "Slack",			NULL,       NULL,	2,			0,           0 },
+	{ "Slack",			NULL,       NULL,	1 << 1,			0,           0 },
+	{ "Thunar",			NULL,       NULL,	1 << 2,			0,			-1 },
+	{ "Mailspring",		NULL,       NULL,	1 << 6,		0,			0 },
 };
 
 /* layout(s) */
@@ -76,6 +77,7 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *brave[]  = { "brave-beta", NULL };
 static const char *flameshot[]  = { "flameshot", "gui", NULL };
 static const char *power[]  = { "/home/rojan/dotfiles/dmenu_scripts/power.sh", NULL };
+static const char *thunar[]  = { "thunar", NULL };
 
 #include "shiftview.c"
 
@@ -114,8 +116,6 @@ static Key keys[] = {
 	TAGKEYS(                        XK_5,                      4)
 	TAGKEYS(                        XK_6,                      5)
 	TAGKEYS(                        XK_7,                      6)
-	TAGKEYS(                        XK_8,                      7)
-	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ 0,XF86XK_AudioMute,			spawn,		SHCMD("pulsemixer --toggle-mute; kill -44 $(pidof dwmblocks)") },
 	{ 0, XF86XK_AudioLowerVolume,	spawn,		SHCMD("pulsemixer --change-volume -5; kill -44 $(pidof dwmblocks)") },
@@ -125,6 +125,7 @@ static Key keys[] = {
 	{ MODKEY,						XK_n,		shiftview,       { .i = +1  } },
 	{ MODKEY|ShiftMask,				XK_n,		shiftview,       { .i = -1  } },
 	{ MODKEY|ShiftMask,				XK_x,		spawn,			{ .v = power  } },
+	{ MODKEY,						XK_o,		spawn,			{.v = thunar }},
 
 };
 
