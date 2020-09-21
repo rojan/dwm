@@ -43,7 +43,7 @@ static const Rule rules[] = {
 	//{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 	{ "Brave-browser",  NULL,       NULL,	1,			0,			-1 },
 	{ "Slack",			NULL,       NULL,	1 << 1,			0,           0 },
-	{ "Mailspring",		NULL,       NULL,	1 << 6,		0,			0 },
+	{ "Thunderbird",		NULL,       NULL,	1 << 6,		0,			0 },
 };
 
 /* layout(s) */
