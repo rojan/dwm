@@ -13,6 +13,7 @@ static const char col_gray1[]       = "#5e81ac";
 static const char col_gray2[]       = "#81a1c1";
 static const char col_gray3[]       = "#4c566a";
 static const char col_gray4[]       = "#434c5e";
+static const char col_gray5[]       = "#E5E9F0";
 static const char col_cyan[]        = "#3b4252";
 static const char col_golden[]		= "#EBCB8B";
 static const char col_aurora1[]		= "#BF616A";
@@ -43,7 +44,7 @@ static const Rule rules[] = {
 	//{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 	{ "Brave-browser",  NULL,       NULL,	1,			0,			-1 },
 	{ "Slack",			NULL,       NULL,	1 << 1,			0,           0 },
-	{ "Thunderbird",		NULL,       NULL,	1 << 6,		0,			0 },
+	{ "Mailspring",		NULL,       NULL,	1 << 6,		0,			-1 },
 };
 
 /* layout(s) */
@@ -71,12 +72,13 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray4, "-nf", col_gray1, "-sb", col_gray2, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray4, "-nf", col_gray5, "-sb", col_gray2, "-sf", col_gray5, NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 static const char *brave[]  = { "brave", NULL };
 static const char *flameshot[]  = { "flameshot", "gui", NULL };
 static const char *power[]  = { "/home/rojan/dotfiles/dmenu_scripts/power.sh", NULL };
 static const char *thunar[]  = { "thunar", NULL };
+static const char *monitors[]  = { "/home/rojan/dotfiles/dmenu_scripts/monitors.sh", NULL };
 
 #include "shiftview.c"
 
@@ -120,11 +122,12 @@ static Key keys[] = {
 	{ 0, XF86XK_AudioLowerVolume,	spawn,		SHCMD("pulsemixer --change-volume -5; kill -44 $(pidof dwmblocks)") },
 	{ 0, XF86XK_AudioRaiseVolume,	spawn,		SHCMD("pulsemixer --change-volume +5; kill -44 $(pidof dwmblocks)") },
 	{ MODKEY,                       XK_w,		spawn,       { .v = brave } },
-	{ MODKEY|ShiftMask,				XK_s,		spawn,       { .v = flameshot } },
+	{ 0,							XK_Print,		spawn,       { .v = flameshot } },
 	{ MODKEY,						XK_n,		shiftview,       { .i = +1  } },
 	{ MODKEY|ShiftMask,				XK_n,		shiftview,       { .i = -1  } },
 	{ MODKEY|ShiftMask,				XK_x,		spawn,			{ .v = power  } },
 	{ MODKEY,						XK_o,		spawn,			{.v = thunar }},
+	{ 0,							XF86XK_Display,	spawn,		{ .v = monitors} },
 
 };
 
